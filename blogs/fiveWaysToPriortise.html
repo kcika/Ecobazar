@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Swiper Js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <title>Ecobazar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <header>
+        <!-- Top Nav -->
+        <div class="hidden md:block z-30 bg-white">
+            <div class="container mx-auto topnav flex items-center justify-between py-5 gap-5">
+                <a href="../index.html" class="logo"><img src="../images/logo.png" alt=""></a>
+                <div class="searchbox border md:w-96 lg:w-full flex items-center justify-between rounded-lg ps-4">
+                    <div class="flex items-center">
+                        <i class="fa-solid fa-magnifying-glass pe-2"></i>
+                        <input type="text" class="border-0 outline-0 w-full lg:w-80" placeholder="Search">
+                    </div>
+                    <button
+                        class="searchBtn bg-green-600 py-2.5 px-6 rounded-r-lg border-2 border-green-600 text-white font-semibold">Search</button>
+                </div>
+                <div class="cart flex items-center cursor-pointer">
+                    <div class="cartIcon relative px-2">
+                        <i class="fa-solid fa-bag-shopping text-2xl px-3"></i>
+                        <span
+                            class="absolute top-1/2 flex items-center justify-center text-white bg-red-500 rounded-full">0</span>
+                    </div>
+                    <a href="../signin.html" class="border-l border-black"><i
+                            class="fa-regular fa-user text-2xl ps-3"></i></a>
+                </div>
+            </div>
+            <!-- Navbar -->
+            <nav class="px-4 bg-gray text-white">
+                <div class="container mx-auto flex justify-between">
+                    <div class="navLinks">
+                        <a href="../index.html"
+                            class="text-lg inline-block p-4 ps-0 font-medium hover:text-green-400 duration-300">Home</a>
+                        <a href="../about.html"
+                            class="text-lg inline-block p-4 font-medium hover:text-green-400 duration-300">About
+                            Us</a>
+                        <a href="../shop.html"
+                            class="text-lg inline-block p-4 font-medium hover:text-green-400 duration-300">Shop</a>
+                        <a href="../blogs.html"
+                            class="text-lg inline-block p-4 font-medium hover:text-green-400 duration-300 active">Blogs</a>
+                        <a href="../contact.html"
+                            class="text-lg inline-block p-4 font-medium hover:text-green-400 duration-300">Contact
+                            Us</a>
+                    </div>
+                    <p class="flex items-center"><img src="../images/call.png" alt=""><span class="ms-3">(219)
+                            555-0114</span></p>
+                </div>
+            </nav>
+        </div>
+        <!-- small devices Navbar-->
+        <nav class="block md:hidden fixed top-0 left-0 bg-white z-30 w-full shadow-xl">
+            <div class="smNavbar flex items-center justify-between py-4 px-3 relative">
+                <a href="../index.html">
+                    <img src="../images/logo.png" width="150" alt="Logo">
+                </a>
+                <div class="navlinks px-4 bg-gray-50 fixed top-0 h-full">
+                    <button class="menuCancel w-full text-right"><i
+                            class="fa-solid fa-xmark text-2xl py-4"></i></button>
+                    <a href="../index.html"
+                        class="block text-2xl py-4 font-medium hover:text-green-400 duration-300">Home</a>
+                    <a href="../about.html"
+                        class="block text-2xl py-4 font-medium hover:text-green-400 duration-300">About
+                        Us</a>
+                    <a href="../shop.html"
+                        class="block text-2xl py-4 font-medium hover:text-green-400 duration-300">Shop</a>
+                    <a href="../blog.html"
+                        class="block text-2xl py-4 font-medium hover:text-green-400 duration-300 active">Blogs</a>
+                    <a href="../contact.html"
+                        class="block text-2xl py-4 font-medium hover:text-green-400 duration-300">Contact
+                        Us</a>
+                </div>
+                <div class="Navicons flex">
+                    <div class="cartIcon relative">
+                        <i class="fa-solid fa-bag-shopping text-2xl ps-4 pe-2 cursor-pointer"></i>
+                        <span
+                            class="absolute top-1/2 flex items-center justify-center text-white bg-red-500 rounded-full">0</span>
+                    </div>
+                    <a href="../signin.html"><i class="fa-regular fa-user text-2xl ps-2 pe-4"></i></a>
+                    <button class="menuBars"><i class="fa-solid fa-bars text-2xl"></i></button>
+                </div>
+            </div>
+        </nav>
+        <!-- cart -->
+        <div class="cartTab fixed top-0 bg-gray-50 z-50 h-full duration-300 overflow-y-auto">
+            <div class="flex justify-between items-center px-5 py-4">
+                <p class="text-2xl font-semibold">Shopping Cart</p>
+                <i class="cartCancel fa-solid fa-xmark text-xl cursor-pointer"></i>
+            </div>
+            <!-- cart list -->
+            <div class="cartList px-3 overflow-y-auto">
+
+            </div>
+            <!-- close and checkout -->
+            <div class="closeCheckBtn grid grid-cols-2 w-full">
+                <button class="closeBtn bg-yellow-500 py-3 text-xl font-medium">Close</button>
+                <a href="../checkout.html"
+                    class="checkout bg-green-600 py-3 text-xl font-medium text-white text-center">Checkout</a>
+            </div>
+        </div>
+    </header>
+    <!-- breadcrumbs -->
+    <div class="hidden md:block relative mt-16 md:mt-0">
+        <div class="absolute top-1/2 -translate-y-1/2 left-10 lg:left-48">
+            <span><a href="../index.html"><i
+                        class="fa-solid fa-house text-white text-xl hover:text-green-500 duration-300"></i></a></span>
+            <span><i class="fa-solid fa-chevron-right text-white text-sm mx-3"></i></span>
+            <span><a href="../blogs.html" class="text-green-500 text-xl">Blogs</a></span>
+            <span><i class="fa-solid fa-chevron-right text-white text-sm mx-3"></i></span>
+            <span class="text-gray-300 text-xl">5 Ways to Prioritize a Healthy Organic Diet</span>
+        </div>
+        <img src="../images/Breadcrumbs.jpg" width="100%" height="" alt="">
+    </div>
+    <!-- About us -->
+    <div class="container mx-auto py-5 md:py-14 px-3 md:px-0 mt-16 md:mt-0">
+        <div class="w-full md:w-5/6 lg:w-4/6 mx-auto">
+            <p class="text-3xl font-semibold text-center">5 Ways to Prioritize a Healthy Organic Diet</p>
+            <p class="text-lg my-3 text-center"><i>- by</i> Nature's Path 4 January 2025</p>
+            <img src="../images/prioritizing-a-healthy-diet.jpg" class="my-10" alt="Blog Image">
+            <div>
+                <p class="text-lg mb-2">
+                    As the new year approaches, one of your resolutions may be to make healthier food choices. It
+                    may seem overwhelming at
+                    first, but it doesn’t have to be. We have put together some helpful ways to incorporate organic
+                    products into your
+                    healthy diet. It's not only thinking about it, but this includes planning and understanding food
+                    labels.
+
+                    First let’s define what eating organic is. According to the U.S. Department of Agriculture the
+                    term “Organic” is food
+                    that is free from processed and synthetic fertilizers, pesticides, and weedicides in both
+                    produce, grains, and animal
+                    products including:
+                </p>
+                <ul>
+                    <li class="list-disc ms-6 my-1">Whole grains (brown rice, millet, oatmeal, etc.)</li>
+                    <li class="list-disc ms-6 my-1">High-quality proteins (grass-fed beef, organic chicken, etc.)
+                    </li>
+                    <li class="list-disc ms-6 my-1">Plant-based proteins (beans, nuts, seeds, etc.)</li>
+                    <li class="list-disc ms-6 my-1">Fruits and Vegetables; and</li>
+                    <li class="list-disc ms-6 my-1">Healthy fats (avocados, coconut oil, etc.)</li>
+                </ul>
+                <p class="text-xl font-semibold my-5">
+                    5 ways you can prioritize a healthy organic diet
+                </p>
+                <div>
+                    <p class="text-lg mb-2">
+                        1. Plan your meals
+                    </p>
+                    <p class="text-lg mb-2">
+                        2. Understand the nutrition labels
+                    </p>
+                    <p class="text-lg mb-2">
+                        3. Focus on organic produce, grains, dairy, and protein
+                    </p>
+                    <p class="text-lg mb-2">
+                        4. Eat at home
+                    </p>
+                    <p class="text-lg mb-2">
+                        5. Commit to an eating schedule
+                    </p>
+                </div>
+                <p class="text-3xl mb-2 mt-5 text-gray-600 font-medium">
+                    Plan your Meals
+                </p>
+                <img src="../images/meal-planning.jpg" class="my-6" alt="">
+                <p class="text-lg mb-4">When planning to adopt an organic diet, it helps to plan your meals in
+                    advance. Whether you use an online tracker, a
+                    spreadsheet, or a list, keeping track of your meals is vital when it comes to eating healthy and
+                    organically.
+                    <br>
+                    Begin by drafting potential meals for the week. Find healthy recipe inspiration here. Once
+                    you’ve solidified your meal
+                    plan, list the recipes and ingredients for each one. You can list them by category, for example
+                    vegetables, fruits,
+                    protein, oils etc. Whether you plan to make golden turmeric overnight oats for breakfast or
+                    fresh vegetables, quinoa and
+                    tofu for dinner, planning your meals will help you stay organized. An added bonus is that
+                    planning a shopping list often
+                    helps with staying within your grocery budget as well.
+                    <br>
+                    Pick a day that works for you to go grocery shopping and prepare your meals. It may seem like a
+                    lot of work upfront, but
+                    you'll see how smoothly your week goes and can ensure your diet is filled with organic foods
+                    that you need to stay
+                    healthy.
+                </p>
+                <p class="text-3xl mb-2 mt-5 text-gray-600 font-medium">
+                    Understand the nutrition labels
+                </p>
+                <p class="text-lg mb-2">
+                    Understanding nutrition labels is good practice when you’re making healthier choices. You don’t
+                    have to be an expert at
+                    reading labels, however, having a basic understanding of what you are putting in your body will
+                    be a helpful part of
+                    your journey.
+                    <br>
+                    Here is a tip, instead of selecting generic versions of foods, look for foods with labels that
+                    read “Organic” or “USDA
+                    Certified ''. Generally, it will be labeled on the front of the packaging, in letters or in
+                    large print. You should be
+                    able to find the organic call out on both the front panel, as well as on the information panel
+                    of the product. For
+                    example, Nature’s Path Organic Heritage Flakes Cereal uses organic callouts in a number of ways.
+                    Explore our product
+                    page to get familiar with where they may be found.
+                    <br>
+                    For additional helpful information on organic labeling in the U.S., visit USDA. GOV- Organic
+                    Products. However, don’t
+                    stress too much about the percentages, being mindful of what the claims mean is a great start.
+                    Keep in mind, anything
+                    that has an organic label is better than the conventional processed foods.
+                </p>
+                <p class="text-3xl mb-2 mt-5 text-gray-600 font-medium">
+                    Focus on Organic Produce, Grains, Dairy, and Protein
+                </p>
+                <p class="text-lg mb-3">
+                    Keeping a healthy organic diet is all about focusing on the food itself. Eating a wide variety
+                    of vegetables, fruits,
+                    grains, protein, and dairy products is important. It can help you meet your daily nutritional
+                    requirements while also
+                    providing you with the essential vitamins, minerals, and fiber your body needs.
+                    <br>
+                    Fruits and vegetables are important because they are high in fiber, vitamins, and minerals and
+                    low in fat. In addition,
+                    it's also an important source of antioxidants that help your body fight off free radicals. Keep
+                    in mind that some fruits
+                    and vegetables contain high levels of pesticides so either buy organic or grow your own produce
+                    if you can.
+                    <br>
+                    Whole Grains are rich in fiber and other nutrients that are often removed during processing.
+                    Whole grains also contain
+                    antioxidant compounds called phytochemicals which help lower your risk for chronic diseases like
+                    cancer and heart
+                    disease. To learn more about these compounds, read this article by Zhang YJ et al. (2015). The
+                    easiest way to make sure
+                    you're eating whole grains is to look for products labeled ”100% whole grain.
+                    <br>
+                    Protein and dairy products are also essential for your body. However, there is a greater
+                    nutritional benefit when it's
+                    organic because it contains omega-3 fatty acids and more antioxidants, and no hormones or
+                    pesticides.
+                </p>
+                <p class="text-3xl mb-2 mt-5 text-gray-600 font-medium">
+                    Eat at Home
+                </p>
+                <img src="../images/healthy-cooking-at-home.jpg" class="my-6" alt="">
+                <p class="text-lg mb-3">Home cooking is a great way to prioritize a healthy organic diet because you
+                    know exactly what products and ingredients
+                    go into your body. Although going out to a restaurant is convenient, you cannot be certain what
+                    ingredients are in their
+                    foods; some restaurant foods can be highly processed and unhealthy.
+                    <br>
+                    Instead, purchase good quality organic products from your local grocery store and prepare a meal
+                    for yourself and your
+                    family. This way you will save money and your body will feel better.
+                    <br>
+                    If you are in a rush in the morning make a quick yogurt parfait with Hemp Hearts granola or a
+                    tasty gluten-free cereal
+                    with a splash of your favorite organic nut milk.
+                </p>
+                <p class="text-3xl mb-2 mt-5 text-gray-600 font-medium">
+                    Commit to an Eating Schedule
+                </p>
+                <p class="text-lg mb-3">Committing to an eating schedule everyday can help you feel more in control
+                    of your eating habits. When you decide to
+                    eat at certain times, you create a routine that will help you stay on track with consuming more
+                    healthy organic foods.
+                    The time you eat does not matter. Most people have their lunch, midday or around 12 p.m. and
+                    avoid eating 2-3 hours
+                    before bedtime.
+                    <br>
+                    According to a few studies published on ScienceDaily.com, eating irregularly puts you at risk
+                    for high blood pressure,
+                    type 2 diabetes, and obesity. As you prepare your meals, make a mental note of when you plan to
+                    eat breakfast, lunch,
+                    and dinner. The best part, if you make food you’re excited to eat, you’ll find yourself looking
+                    forward to each meal and
+                    sticking to the best times to enjoy them.
+                    <br>
+                    Planning and learning to take control of your health is the key to maintaining a healthy organic
+                    diet. Remember that
+                    it's not about being perfect but being aware and purposeful. That is what will help you succeed
+                    in your health journey.
+                    <br>
+                    Find organic products you look forward to enjoying and remember that small changes can make a
+                    big impact. Nature’s Path
+                    products are “Always Organic”. They taste delicious and can help in your healthy eating journey.
+                    Explore our organic
+                    products here. We also offer other organic options that are vegan and gluten-free.
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- Newsletter -->
+    <div class="newsletter bg-gray-100 py-10">
+        <div class="container mx-auto flex flex-col lg:flex-row justify-between items-center gap-5">
+            <div class="w-full text-center lg:w-1/3">
+                <p class="text-3xl font-semibold">Subscribe our Newsletter</p>
+                <p class="mt-5 text-zinc-500">Pellentesque eu nibh eget mauris congue mattis mattis nec tellus.
+                    Phasellus
+                    imperdiet elit
+                    eu magna.</p>
+            </div>
+            <div class="w-full lg:w-2/3 px-5 md:px-0">
+                <div class="flex flex-col md:flex-row gap-3 justify-end">
+                    <form action="" class="flex bg-white rounded-full justify-between">
+                        <input type="email" class="w-72 border-0 outline-0 bg-transparent py-4 px-6"
+                            placeholder="Your email address" name="email" id="email" required>
+                        <button type="submit"
+                            class="py-4 px-10 bg-green-600 rounded-full text-white font-semibold">Subscribe</button>
+                    </form>
+                    <div class="icons flex ms-5 justify-center">
+                        <a href=""
+                            class="inline-block border rounded-full w-12 h-12 mx-3 flex items-center justify-center text-zinc-700 hover:bg-green-600 duration-300"><i
+                                class="fa-brands fa-facebook-f text-xl text-zinc-700"></i></a>
+                        <a href=""
+                            class="inline-block border rounded-full w-12 h-12 mx-3 flex items-center justify-center text-zinc-700 hover:bg-green-600 duration-300"><i
+                                class="fa-brands fa-twitter text-xl text-zinc-700"></i></a>
+                        <a href=""
+                            class="inline-block border rounded-full w-12 h-12 mx-3 flex items-center justify-center text-zinc-700 hover:bg-green-600 duration-300"><i
+                                class="fa-brands fa-pinterest-p text-xl text-zinc-700"></i></a>
+                        <a href=""
+                            class="inline-block border rounded-full w-12 h-12 mx-3 flex items-center justify-center text-zinc-700 hover:bg-green-600 duration-300"><i
+                                class="fa-brands fa-instagram text-xl text-zinc-700"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+    <footer class="footer bg-gray">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row gap-10 justify-between py-10">
+                <div class="basis-1/4">
+                    <img src="../images/logoWhite.png" alt="">
+                    <p class="py-3 text-zinc-500">Morbi cursus porttitor enim lobortis molestie. Duis gravida turpis
+                        dui, eget bibendum magna congue nec.</p>
+                    <p class="text-zinc-500"><span class="text-white font-semibold pe-2">(219) 555-0114</span>
+                        or
+                        <span class="text-white font-semibold ps-2">Proxy@gmail.com</span>
+                    </p>
+                </div>
+                <div class="basis-3/4 grid grid-cols-2 md:grid-cols-4 justify-between">
+                    <div class="flex flex-col text-zinc-500">
+                        <p class="text-white text-lg font-medium mb-3">My Account</p>
+                        <a href="../signin.html" class="pb-1">My Account</a>
+                        <a href="" class="pb-1">Order History</a>
+                        <a href="" class="pb-1">Shopping Cart</a>
+                        <a href="" class="pb-1">Wishlist</a>
+                    </div>
+                    <div class="flex flex-col text-zinc-500">
+                        <p class="text-white text-lg font-medium mb-3">Help</p>
+                        <a href="../contact.html" class="pb-1">Contact</a>
+                        <a href="../faqs.html" class="pb-1">FAQs</a>
+                        <a href="../404.html" class="pb-1">Terms &amp; Conditions</a>
+                        <a href="../404.html" class="pb-1">Privacy Policy</a>
+                    </div>
+                    <div class="flex flex-col text-zinc-500">
+                        <p class="text-white text-lg font-medium mb-3">Proxy</p>
+                        <a href="../about.html" class="pb-1">About</a>
+                        <a href="../shop.html" class="pb-1">Shop</a>
+                        <a href="../signin.html" class="pb-1">Track Order</a>
+                    </div>
+                    <div class="flex flex-col text-zinc-500">
+                        <p class="text-white text-lg font-medium mb-3">Download our Mobile App</p>
+                        <div class="flex">
+                            <img src="../images/appStore.png" class="w-1/2 rounded-lg me-2" width="140"
+                                alt="appstore icon">
+                            <img src="../images/playStore.png" class="w-1/2 rounded-lg" width="140"
+                                alt="playstore icon">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-t-gray-700 py-6 text-center flex flex-col md:flex-row justify-between">
+                <p class="text-zinc-500">Ecobazar eCommerce © 2021. All Rights Reserved</p>
+                <div class="my-2 md:m-0">
+                    <img src="../images/payment.png" class="w-3/4 mx-auto md:w-full" alt="">
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="../script.js"></script>
+<script src="../cart.js" type="module"></script>
+
+</html>

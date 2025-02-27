@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Swiper Js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <title>Ecobazar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <header>
+        <!-- Top Nav -->
+        <div class="hidden md:block z-30 bg-white">
+            <div class="container mx-auto topnav flex items-center justify-between py-5 gap-5">
+                <a href="../index.html" class="logo"><img src="../images/logo.png" alt=""></a>
+                <div class="searchbox border md:w-96 lg:w-full flex items-center justify-between rounded-lg ps-4">
+                    <div class="flex items-center">
+                        <i class="fa-solid fa-magnifying-glass pe-2"></i>
+                        <input type="text" class="border-0 outline-0 w-full lg:w-80" placeholder="Search">
+                    </div>
+                    <button
+                        class="searchBtn bg-green-600 py-2.5 px-6 rounded-r-lg border-2 border-green-600 text-white font-semibold">Search</button>
+                </div>
+                <div class="cart flex items-center cursor-pointer">
+                    <div class="cartIcon relative px-2">
+                        <i class="fa-solid fa-bag-shopping text-2xl px-3"></i>
+                        <span
+                            class="absolute top-1/2 flex items-center justify-center text-white bg-red-500 rounded-full">0</span>
+                    </div>
+                    <a href="../signin.html" class="border-l border-black"><i
+                            class="fa-regular fa-user text-2xl ps-3"></i></a>
+                </div>
+            </div>
+            <!-- Navbar -->
+            <nav class="px-4 bg-gray text-white">
+                <div class="container mx-auto flex justify-between">
+                    <div class="navLinks">
+                        <a href="../index.html"
+                            class="text-lg inline-block p-4 ps-0 font-medium hover:text-green-400 duration-300">Home</a>
+                        <a href="../about.html"
+                            class="text-lg inline-block p-4 font-medium hover:text-green-400 duration-300">About
+                            Us</a>
+                        <a href="../shop.html"
+                            class="text-lg inline-block p-4 font-medium hover:text-green-400 duration-300">Shop</a>
+                        <a href="../blogs.html"
+                            class="text-lg inline-block p-4 font-medium hover:text-green-400 duration-300 active">Blogs</a>
+                        <a href="../contact.html"
+                            class="text-lg inline-block p-4 font-medium hover:text-green-400 duration-300">Contact
+                            Us</a>
+                    </div>
+                    <p class="flex items-center"><img src="../images/call.png" alt=""><span class="ms-3">(219)
+                            555-0114</span></p>
+                </div>
+            </nav>
+        </div>
+        <!-- small devices Navbar-->
+        <nav class="block md:hidden fixed top-0 left-0 bg-white z-30 w-full shadow-xl">
+            <div class="smNavbar flex items-center justify-between py-4 px-3 relative">
+                <a href="../index.html">
+                    <img src="../images/logo.png" width="150" alt="Logo">
+                </a>
+                <div class="navlinks px-4 bg-gray-50 fixed top-0 h-full">
+                    <button class="menuCancel w-full text-right"><i
+                            class="fa-solid fa-xmark text-2xl py-4"></i></button>
+                    <a href="../index.html"
+                        class="block text-2xl py-4 font-medium hover:text-green-400 duration-300">Home</a>
+                    <a href="../about.html"
+                        class="block text-2xl py-4 font-medium hover:text-green-400 duration-300">About
+                        Us</a>
+                    <a href="../shop.html"
+                        class="block text-2xl py-4 font-medium hover:text-green-400 duration-300">Shop</a>
+                    <a href="../blog.html"
+                        class="block text-2xl py-4 font-medium hover:text-green-400 duration-300 active">Blogs</a>
+                    <a href="../contact.html"
+                        class="block text-2xl py-4 font-medium hover:text-green-400 duration-300">Contact
+                        Us</a>
+                </div>
+                <div class="Navicons flex">
+                    <div class="cartIcon relative">
+                        <i class="fa-solid fa-bag-shopping text-2xl ps-4 pe-2 cursor-pointer"></i>
+                        <span
+                            class="absolute top-1/2 flex items-center justify-center text-white bg-red-500 rounded-full">0</span>
+                    </div>
+                    <a href="../signin.html"><i class="fa-regular fa-user text-2xl ps-2 pe-4"></i></a>
+                    <button class="menuBars"><i class="fa-solid fa-bars text-2xl"></i></button>
+                </div>
+            </div>
+        </nav>
+        <!-- cart -->
+        <div class="cartTab fixed top-0 bg-gray-50 z-50 h-full duration-300 overflow-y-auto">
+            <div class="flex justify-between items-center px-5 py-4">
+                <p class="text-2xl font-semibold">Shopping Cart</p>
+                <i class="cartCancel fa-solid fa-xmark text-xl cursor-pointer"></i>
+            </div>
+            <!-- cart list -->
+            <div class="cartList px-3 overflow-y-auto">
+
+            </div>
+            <!-- close and checkout -->
+            <div class="closeCheckBtn grid grid-cols-2 w-full">
+                <button class="closeBtn bg-yellow-500 py-3 text-xl font-medium">Close</button>
+                <a href="../checkout.html"
+                    class="checkout bg-green-600 py-3 text-xl font-medium text-white text-center">Checkout</a>
+            </div>
+        </div>
+    </header>
+    <!-- breadcrumbs -->
+    <div class="hidden md:block relative mt-16 md:mt-0">
+        <div class="absolute top-1/2 -translate-y-1/2 left-10 lg:left-48">
+            <span><a href="../index.html"><i
+                        class="fa-solid fa-house text-white text-xl hover:text-green-500 duration-300"></i></a></span>
+            <span><i class="fa-solid fa-chevron-right text-white text-sm mx-3"></i></span>
+            <span><a href="../blogs.html" class="text-green-500 text-xl">Blogs</a></span>
+            <span><i class="fa-solid fa-chevron-right text-white text-sm mx-3"></i></span>
+            <span class="text-gray-300 text-xl">From Seed to Fork</span>
+        </div>
+        <img src="../images/Breadcrumbs.jpg" width="100%" height="" alt="">
+    </div>
+    <!-- About us -->
+    <div class="container mx-auto py-5 md:py-14 px-3 md:px-0 mt-16 md:mt-0">
+        <div class="w-full md:w-5/6 lg:w-4/6 mx-auto">
+            <p class="text-3xl font-semibold text-center">Harnessing Organic Farming to Tackle Climate Change</p>
+            <p class="text-lg my-3 text-center"><i>- by</i> Nature's Path 15 January 2025</p>
+            <img src="../images/fromSeedToForl.jpg" class="my-10" alt="Blog Image">
+            <div>
+                <p class="text-lg mb-2">
+                    When we think about the culprits behind climate change, we often picture smokestacks, car
+                    exhaust,
+                    and deforestation.
+                    But one of the biggest contributors lies in a less obvious place: the food we eat and how it’s
+                    grown. Agriculture
+                    accounts for approximately <strong>17% of global greenhouse gas emissions</strong>, according to
+                    the
+                    United Nations
+                    Food and Agriculture
+                    Organization (FAO), with industrial farming practices being a major driver.1
+                </p>
+                <p class="text-lg mb-2">
+                    <strong>The good news</strong>? Agriculture isn’t just part of the problem; it can also be a
+                    powerful solution.
+                    Nature’s Path Organic
+                    Foods and Center for Food Safety believe that organic farming holds the key to addressing some
+                    of
+                    the biggest challenges
+                    of our time, from climate change to food security. We’re partnering together to elevate the
+                    power of
+                    organic farming and
+                    amplify visionary legislation within the Farm Bill like the Agriculture Resilience Act, which
+                    offers
+                    a pathway to a
+                    healthier planet and a more sustainable food system.
+                </p>
+                <p class="text-lg mb-4">Here is why the Agriculture Resilience Act can, if passed, make a real
+                    difference in transforming our food system and
+                    combating climate change:</p>
+                <p class="text-3xl mb-2 mt-5 text-gray-600 font-medium">
+                    Industrial Agriculture: A Climate Crisis Driver
+                </p>
+                <p class="text-lg mb-2">Industrial agriculture—the dominant model of farming today—relies on
+                    practices
+                    that deplete natural
+                    resources and contribute heavily to climate change. Here are the primary ways it harms the
+                    environment:</p>
+                <p class="text-2xl mb-2 text-green-500 font-medium">
+                    1. Greenhouse Gas Emissions
+                </p>
+                <p class="text-lg mb-3">Industrial farming generates significant greenhouse gases. Livestock
+                    production
+                    by industrial-sized factory farms, or
+                    Concentrated Animal Feeding Operations (CAFOs), alone accounts for about <strong>14.5% of global
+                        emissions</strong>,
+                    with methane from
+                    cattle and nitrous oxide from poorly managed manure and synthetic fertilizers being key
+                    culprits.Meanwhile, large-scale monocropping, which prioritizes single crops like corn and soy,
+                    contributes
+                    to soil degradation
+                    and the release of stored carbon into the atmosphere.</p>
+                <p class="text-2xl mb-2 text-green-500 font-medium">
+                    2. Deforestation and Land Use</p>
+                <p class="text-lg mb-3">Industrial farming often expands at the expense of forests, which are
+                    critical
+                    carbon sinks. Each year, approximately <strong>10
+                        million hectares of forest</strong> are cleared globally, much of it for agricultural use.
+                    This
+                    not only
+                    releases carbon, but
+                    also reduces the planet’s capacity to absorb CO2.</p>
+                <p class="text-2xl mb-2 text-green-500 font-medium">
+                    3. Overuse of Chemical Inputs
+                </p>
+                <p class="text-lg mb-3">Synthetic fertilizers and pesticides—cornerstones of industrial farming—are
+                    energy-intensive to produce and apply. They
+                    also release nitrous oxide, a greenhouse gas about <strong>300 times more potent than
+                        CO2</strong>.
+                    Runoff from
+                    these chemicals pollutes
+                    waterways, causing dead zones in oceans and harming ecosystems.</p>
+                <p class="text-2xl mb-2 text-green-500 font-medium">
+                    4. Soil Degradation
+                </p>
+                <p class="text-lg mb-3">Industrial farming methods strip the soil of its organic matter, reducing
+                    its
+                    ability to retain carbon. Globally, soil
+                    erosion releases up to 1.5 billion tons of CO2 annually.5 This not only accelerates climate
+                    change
+                    but also undermines
+                    long-term food security.</p>
+
+                <p class="text-3xl mt-8 mb-4 text-gray-600 font-medium">Organic Agriculture: A Climate Solution</p>
+                <p class="text-lg mb-4">Organic farming represents a transformative alternative to industrial
+                    agriculture. By working with nature rather than
+                    against it, organic practices can help mitigate climate change while fostering healthier
+                    ecosystems.
+                    Here’s how:</p>
+                <p class="text-2xl mb-2 text-green-500 font-medium">
+                    1. Organic Increases Carbon Sequestration
+                </p>
+                <p class="text-lg mb-3">Organic farming prioritizes soil health through practices like crop
+                    rotation,
+                    cover cropping, and composting. These
+                    methods increase soil organic matter, enabling soils to act as carbon sinks. Studies have shown
+                    that
+                    organic farms can
+                    sequester up to 25% more carbon than conventional industrial farms.</p>
+                <p class="text-2xl mb-2 text-green-500 font-medium">
+                    2. Organic Contributes to Reduced Emissions
+                </p>
+                <p class="text-lg mb-3">Organic agriculture avoids synthetic fertilizers and pesticides, drastically
+                    reducing nitrous oxide emissions by up to
+                    40%. It also emphasizes diversified farming systems with careful nutrient management, which can
+                    lower methane emissions
+                    by integrating crops and livestock in more sustainable ways.</p>
+                <p class="text-2xl mb-2 text-green-500 font-medium">
+                    3. Organic Protects Biodiversity and Resilience
+                </p>
+                <p class="text-lg mb-3">By fostering biodiversity both above and below ground, organic farming
+                    creates
+                    more resilient ecosystems. This not only
+                    helps farms withstand extreme weather, but also supports pollinators, natural pest control, and
+                    water conservation.
+                    Organic increases the microbial diversity of soil by up to 40%, and creates a safer habitat for
+                    human, animal, and
+                    insect life.</p>
+                <p class="text-2xl mb-2 text-green-500 font-medium">
+                    4. Organic Promotes Energy Efficiency
+                </p>
+                <p class="text-lg mb-8">Organic systems use up to 45% less energy than conventional systems per unit
+                    of
+                    crop produced. This is largely because
+                    they eliminate the energy-intensive processes associated with synthetic inputs.</p>
+                <p class="text-3xl mb-2 text-gray-600 font-medium">
+                    What now? The Agriculture Resilience Act: A Policy for Change
+                </p>
+                <p class="text-lg mb-3">We need to advocate together for legislative policy that invests in the
+                    bright
+                    food future we all want. The Agriculture
+                    Resilience Act, introduced as part of the draft U.S. Farm Bill currently under consideration, is
+                    a
+                    groundbreaking piece
+                    of legislation that recognizes the dual role of agriculture in climate change and needs our
+                    support
+                    to get passed. By
+                    leveraging organic farming as a key strategy, it lays out a roadmap for transforming agriculture
+                    from a climate problem
+                    to a climate solution. Here are the key provisions:</p>
+                <p class="text-2xl mb-2 text-green-500 font-medium">
+                    1. Achieving Net-Zero Emissions by 2040
+                </p>
+                <p class="text-lg mb-3">The act calls on the USDA to finalize and implement a plan to achieve
+                    net-zero
+                    greenhouse gas emissions from agriculture
+                    by 2040. This ambitious goal includes expanding support for practices that sequester carbon and
+                    reduce emissions, with
+                    organic farming front and center.</p>
+                <p class="text-2xl mb-2 text-green-500 font-medium">
+                    2. Expanding Technical Assistance
+                </p>
+                <p class="text-lg mb-3">Transitioning to organic practices can be daunting for farmers. The
+                    Agriculture
+                    Resilience Act increases funding for
+                    much needed technical assistance programs that help farmers adopt cover cropping, composting,
+                    and
+                    other climate-smart,
+                    organic techniques.</p>
+                <p class="text-2xl mb-2 text-green-500 font-medium">
+                    3. Boosting Research and Education
+                </p>
+                <p class="text-lg mb-3">The act prioritizes research into organic and regenerative farming methods.
+                    It
+                    also supports education initiatives to
+                    train new generations of farmers in climate-resilient, organic practices.</p>
+                <p class="text-2xl mb-2 text-green-500 font-medium">
+                    4. Supporting Renewable Energy
+                </p>
+                <p class="text-lg mb-3">By promoting renewable energy solutions for rural areas, the act helps
+                    reduce
+                    agriculture’s reliance on fossil fuels.
+                    Solar panels on farms and biogas systems for manure management are just a few examples of how
+                    this
+                    can work.</p>
+                <p class="text-2xl mb-2 text-green-500 font-medium">
+                    5. Reducing Food Waste
+                </p>
+                <p class="text-lg mb-8">Food waste is a major contributor to climate change, responsible for about
+                    8-10%
+                    of global emissions.10 The act provides
+                    grants to schools and communities to reduce food waste, keeping it out of landfills and turning
+                    it
+                    into compost to
+                    enrich soils.</p>
+                <p class="text-3xl text-gray-600 font-medium mb-2">Why It Matters</p>
+                <p class="text-lg mb-3">The stakes couldn’t be higher. Climate change threatens global food
+                    security,
+                    with rising temperatures and unpredictable
+                    weather making it harder for farmers to grow our food. At the same time, the way we farm today
+                    is
+                    accelerating the
+                    problem. Organic agriculture offers a proven pathway to a sustainable food future, but farmers
+                    need
+                    the right resources
+                    and support to make the transition.
+                    <br>
+                    The Agriculture Resilience Act, as part of the Farm Bill, is a bold step toward aligning U.S.
+                    agriculture with climate
+                    goals. By investing in organic farming, we can empower farmers to lead the charge against
+                    climate
+                    change while ensuring
+                    a healthier, more equitable food system for future generations.
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- Newsletter -->
+    <div class="newsletter bg-gray-100 py-10">
+        <div class="container mx-auto flex flex-col lg:flex-row justify-between items-center gap-5">
+            <div class="w-full text-center lg:w-1/3">
+                <p class="text-3xl font-semibold">Subscribe our Newsletter</p>
+                <p class="mt-5 text-zinc-500">Pellentesque eu nibh eget mauris congue mattis mattis nec tellus.
+                    Phasellus
+                    imperdiet elit
+                    eu magna.</p>
+            </div>
+            <div class="w-full lg:w-2/3 px-5 md:px-0">
+                <div class="flex flex-col md:flex-row gap-3 justify-end">
+                    <form action="" class="flex bg-white rounded-full justify-between">
+                        <input type="email" class="w-72 border-0 outline-0 bg-transparent py-4 px-6"
+                            placeholder="Your email address" name="email" id="email" required>
+                        <button type="submit"
+                            class="py-4 px-10 bg-green-600 rounded-full text-white font-semibold">Subscribe</button>
+                    </form>
+                    <div class="icons flex ms-5 justify-center">
+                        <a href=""
+                            class="inline-block border rounded-full w-12 h-12 mx-3 flex items-center justify-center text-zinc-700 hover:bg-green-600 duration-300"><i
+                                class="fa-brands fa-facebook-f text-xl text-zinc-700"></i></a>
+                        <a href=""
+                            class="inline-block border rounded-full w-12 h-12 mx-3 flex items-center justify-center text-zinc-700 hover:bg-green-600 duration-300"><i
+                                class="fa-brands fa-twitter text-xl text-zinc-700"></i></a>
+                        <a href=""
+                            class="inline-block border rounded-full w-12 h-12 mx-3 flex items-center justify-center text-zinc-700 hover:bg-green-600 duration-300"><i
+                                class="fa-brands fa-pinterest-p text-xl text-zinc-700"></i></a>
+                        <a href=""
+                            class="inline-block border rounded-full w-12 h-12 mx-3 flex items-center justify-center text-zinc-700 hover:bg-green-600 duration-300"><i
+                                class="fa-brands fa-instagram text-xl text-zinc-700"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+    <footer class="footer bg-gray">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row gap-10 justify-between py-10">
+                <div class="basis-1/4">
+                    <img src="../images/logoWhite.png" alt="">
+                    <p class="py-3 text-zinc-500">Morbi cursus porttitor enim lobortis molestie. Duis gravida turpis
+                        dui, eget bibendum magna congue nec.</p>
+                    <p class="text-zinc-500"><span class="text-white font-semibold pe-2">(219) 555-0114</span>
+                        or
+                        <span class="text-white font-semibold ps-2">Proxy@gmail.com</span>
+                    </p>
+                </div>
+                <div class="basis-3/4 grid grid-cols-2 md:grid-cols-4 justify-between">
+                    <div class="flex flex-col text-zinc-500">
+                        <p class="text-white text-lg font-medium mb-3">My Account</p>
+                        <a href="../signin.html" class="pb-1">My Account</a>
+                        <a href="" class="pb-1">Order History</a>
+                        <a href="" class="pb-1">Shopping Cart</a>
+                        <a href="" class="pb-1">Wishlist</a>
+                    </div>
+                    <div class="flex flex-col text-zinc-500">
+                        <p class="text-white text-lg font-medium mb-3">Help</p>
+                        <a href="../contact.html" class="pb-1">Contact</a>
+                        <a href="../faqs.html" class="pb-1">FAQs</a>
+                        <a href="../404.html" class="pb-1">Terms &amp; Conditions</a>
+                        <a href="../404.html" class="pb-1">Privacy Policy</a>
+                    </div>
+                    <div class="flex flex-col text-zinc-500">
+                        <p class="text-white text-lg font-medium mb-3">Proxy</p>
+                        <a href="../about.html" class="pb-1">About</a>
+                        <a href="../shop.html" class="pb-1">Shop</a>
+                        <a href="../signin.html" class="pb-1">Track Order</a>
+                    </div>
+                    <div class="flex flex-col text-zinc-500">
+                        <p class="text-white text-lg font-medium mb-3">Download our Mobile App</p>
+                        <div class="flex">
+                            <img src="../images/appStore.png" class="w-1/2 rounded-lg me-2" width="140"
+                                alt="appstore icon">
+                            <img src="../images/playStore.png" class="w-1/2 rounded-lg" width="140"
+                                alt="playstore icon">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-t-gray-700 py-6 text-center flex flex-col md:flex-row justify-between">
+                <p class="text-zinc-500">Ecobazar eCommerce © 2021. All Rights Reserved</p>
+                <div class="my-2 md:m-0">
+                    <img src="../images/payment.png" class="w-3/4 mx-auto md:w-full" alt="">
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="../script.js"></script>
+<script src="../cart.js" type="module"></script>
+
+</html>

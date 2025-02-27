@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Swiper Js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <title>Ecobazar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <header id="header">
+        <!-- Top Nav -->
+        <div class="hidden md:block z-30 bg-white">
+            <div class="container mx-auto topnav flex items-center justify-between py-5 gap-5">
+                <a href="index.html" class="logo"><img src="images/logo.png" alt=""></a>
+                <div class="searchbox border md:w-96 lg:w-full flex items-center justify-between rounded-lg ps-4">
+                    <div class="flex items-center">
+                        <i class="fa-solid fa-magnifying-glass pe-2"></i>
+                        <input type="text" class="border-0 outline-0 w-full lg:w-80" placeholder="Search">
+                    </div>
+                    <button
+                        class="searchBtn bg-green-600 py-2.5 px-6 rounded-r-lg border-2 border-green-600 text-white font-semibold">Search</button>
+                </div>
+                <div class="cart flex items-center cursor-pointer">
+                    <div class="cartIcon relative px-2">
+                        <i class="fa-solid fa-bag-shopping text-2xl px-3"></i>
+                        <span
+                            class="absolute top-1/2 flex items-center justify-center text-white bg-red-500 rounded-full">0</span>
+                    </div>
+                    <a href="signin.html" class="border-l border-black"><i
+                            class="fa-regular fa-user text-2xl ps-3"></i></a>
+                </div>
+            </div>
+            <!-- Navbar -->
+            <nav class="px-4 bg-gray text-white">
+                <div class="container mx-auto flex justify-between">
+                    <div class="navLinks">
+                        <a href="index.html"
+                            class="text-lg inline-block p-4 ps-0 font-medium hover:text-green-400 duration-300">Home</a>
+                        <a href="about.html"
+                            class="text-lg inline-block p-4 font-medium hover:text-green-400 duration-300">About
+                            Us</a>
+                        <a href="shop.html"
+                            class="text-lg inline-block p-4 font-medium hover:text-green-400 duration-300">Shop</a>
+                        <a href=""
+                            class="text-lg inline-block p-4 font-medium hover:text-green-400 duration-300 active">Blogs</a>
+                        <a href="contact.html"
+                            class="text-lg inline-block p-4 font-medium hover:text-green-400 duration-300">Contact
+                            Us</a>
+                    </div>
+                    <p class="flex items-center"><img src="images/call.png" alt=""><span class="ms-3">(219)
+                            555-0114</span></p>
+                </div>
+            </nav>
+        </div>
+        <!-- small devices Navbar-->
+        <nav class="block md:hidden fixed top-0 left-0 bg-white z-30 w-full shadow-xl">
+            <div class="smNavbar flex items-center justify-between py-4 px-3 relative">
+                <a href="index.html">
+                    <img src="images/logo.png" width="150" alt="Logo">
+                </a>
+                <div class="navlinks px-4 bg-gray-50 fixed top-0 h-full">
+                    <button class="menuCancel w-full text-right"><i
+                            class="fa-solid fa-xmark text-2xl py-4"></i></button>
+                    <a href="index.html"
+                        class="block text-2xl py-4 font-medium hover:text-green-400 duration-300">Home</a>
+                    <a href="about.html" class="block text-2xl py-4 font-medium hover:text-green-400 duration-300">About
+                        Us</a>
+                    <a href="shop.html"
+                        class="block text-2xl py-4 font-medium hover:text-green-400 duration-300">Shop</a>
+                    <a href="blog.html"
+                        class="block text-2xl py-4 font-medium hover:text-green-400 duration-300 active">Blogs</a>
+                    <a href="contact.html"
+                        class="block text-2xl py-4 font-medium hover:text-green-400 duration-300">Contact
+                        Us</a>
+                </div>
+                <div class="Navicons flex">
+                    <div class="cartIcon relative">
+                        <i class="fa-solid fa-bag-shopping text-2xl ps-4 pe-2 cursor-pointer"></i>
+                        <span
+                            class="absolute top-1/2 flex items-center justify-center text-white bg-red-500 rounded-full">0</span>
+                    </div>
+                    <a href="signin.html"><i class="fa-regular fa-user text-2xl ps-2 pe-4"></i></a>
+                    <button class="menuBars"><i class="fa-solid fa-bars text-2xl"></i></button>
+                </div>
+            </div>
+        </nav>
+        <!-- cart -->
+        <div class="cartTab fixed top-0 bg-gray-50 z-50 h-full duration-300 overflow-y-auto">
+            <div class="flex justify-between items-center px-5 py-4">
+                <p class="text-2xl font-semibold">Shopping Cart</p>
+                <i class="cartCancel fa-solid fa-xmark text-xl cursor-pointer"></i>
+            </div>
+            <!-- cart list -->
+            <div class="cartList px-3 overflow-y-auto">
+
+            </div>
+            <!-- close and checkout -->
+            <div class="closeCheckBtn grid grid-cols-2 w-full">
+                <button class="closeBtn bg-yellow-500 py-3 text-xl font-medium">Close</button>
+                <a href="checkout.html"
+                    class="checkout bg-green-600 py-3 text-xl font-medium text-white text-center">Checkout</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <!-- breadcrumbs -->
+        <div class="hidden lg:block relative mt-16 md:mt-0">
+            <div class="absolute top-1/2 -translate-y-1/2 left-10 lg:left-48">
+                <span><a href="index.html"><i
+                            class="fa-solid fa-house text-white text-xl hover:text-green-500 duration-300"></i></a></span>
+                <span><i class="fa-solid fa-chevron-right text-white text-sm mx-3"></i></span>
+                <span class="text-green-500 text-xl">Blogs</span>
+            </div>
+            <img src="images/Breadcrumbs.jpg" width="100%" height="" alt="">
+        </div>
+        <!-- back to top btn -->
+        <div
+            class="hidden md:flex fixed bottom-6 lg:bottom-10 right-6 lg:right-14 h-10 w-10 bg-green-600 justify-center items-center rounded-full z-30">
+            <a href="#header"><i class="fa-solid fa-chevron-up text-2xl text-white duration-300"></i></a>
+        </div>
+        <!-- About us -->
+        <div class="container mx-auto px-3 md:px-0 mt-20 md:mt-0">
+            <p class="text-3xl font-semibold my-8">Trending Posts</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-10">
+                <div class="blogCard shadow-2xl rounded-lg overflow-hidden">
+                    <div class="imgCont relative overflow-hidden">
+                        <div class="date text-center bg-white w-14 h-14 rounded-md absolute bottom-5 left-5 z-10">
+                            <span class="text-lg font-semibold">04</span><br><span class="text-zinc-500">Jan</span>
+                        </div>
+                        <a href="blogs/cleanEatingHabits.html">
+                            <img src="images/healthy_snacks.jpg" class="rounded-t-lg duration-300" alt="">
+                        </a>
+                    </div>
+                    <div class="blogInfo p-4 px-6">
+                        <div class="flex">
+                            <p class="text-zinc-500 text-sm"><i class="pe-2 fa-solid fa-tag"></i>Food</p>
+                            <p class="text-zinc-500 text-sm mx-5"><i class="pe-2 fa-regular fa-user"></i>By Admin
+                            </p>
+                            <p class="text-zinc-500 text-sm"><i class="pe-2 fa-regular fa-comment"></i>65 Comments
+                            </p>
+                        </div>
+                        <p class="text-xl text-green-800 font-semibold my-2 h-12">11 Ways to Eat Clean: Clean Eating
+                            Beginners
+                            Guide</p>
+                        <p class="my-2">Eating clean consists of eating whole, unprocessed foods and avoiding highly
+                            refined
+                            foods.
+                            Additionally, eating clean...</p>
+                        <a href="blogs/cleanEatingHabits.html" class="text-green-500 font-semibold">Read more <i
+                                class="fa-solid fa-arrow-right ms-1 text-sm"></i></a>
+                    </div>
+                </div>
+                <div class="blogCard shadow-2xl rounded-lg overflow-hidden">
+                    <div class="imgCont relative overflow-hidden">
+                        <div class="date text-center bg-white w-14 h-14 rounded-md absolute bottom-5 left-5 z-10">
+                            <span class="text-lg font-semibold">15</span><br><span class="text-zinc-500">July</span>
+                        </div>
+                        <a href="blogs/sugarSubstitutes.html">
+                            <img src="images/dates.jpg" width="100%" class="rounded-t-lg duration-300" alt=""></a>
+                    </div>
+                    <div class="blogInfo p-4 px-6">
+                        <div class="flex">
+                            <p class="text-zinc-500 text-sm"><i class="pe-2 fa-solid fa-tag"></i>Food</p>
+                            <p class="text-zinc-500 text-sm mx-5"><i class="pe-2 fa-regular fa-user"></i>By Admin
+                            </p>
+                            <p class="text-zinc-500 text-sm"><i class="pe-2 fa-regular fa-comment"></i>65 Comments
+                            </p>
+                        </div>
+                        <p class="text-xl text-green-800 font-semibold my-2 h-12">Sugar Substitutes: Why Date Powder is
+                            Our
+                            New
+                            Fav
+                            Sweetener</p>
+                        <p class="my-2">Are you trying to reduce your sugar intake? Us too. Whether you want to drop
+                            a few pounds or reduce your risk of heart...</p>
+                        <a href="blogs/sugarSubstitutes.html" class="text-green-500 font-semibold">Read more <i
+                                class="fa-solid fa-arrow-right ms-1 text-sm"></i></a>
+                    </div>
+                </div>
+                <div class="blogCard shadow-2xl rounded-lg overflow-hidden">
+                    <div class="imgCont relative overflow-hidden">
+                        <div class="date text-center bg-white w-14 h-14 rounded-md absolute bottom-5 left-5 z-10">
+                            <span class="text-lg font-semibold">04</span><br><span class="text-zinc-500">Jan</span>
+                        </div>
+                        <a href="blogs/fiveWaysToPriortise.html"><img src="images/prioritizing-a-healthy-diet.jpg"
+                                width="100%" class="rounded-t-lg duration-300" alt=""></a>
+                    </div>
+                    <div class="blogInfo p-4 px-6">
+                        <div class="flex">
+                            <p class="text-zinc-500 text-sm"><i class="pe-2 fa-solid fa-tag"></i>Food</p>
+                            <p class="text-zinc-500 text-sm mx-5"><i class="pe-2 fa-regular fa-user"></i>By Admin
+                            </p>
+                            <p class="text-zinc-500 text-sm"><i class="pe-2 fa-regular fa-comment"></i>65 Comments
+                            </p>
+                        </div>
+                        <p class="text-xl text-green-800 font-semibold my-2 h-12">5 Ways to Prioritize a Healthy Organic
+                            Diet</p>
+                        <p class="my-2">As the new year approaches, one of your resolutions may be to make healthier
+                            food
+                            choices. It
+                            may seem ...</p>
+                        <a href="blogs/fiveWaysToPriortise.html" class="text-green-500 font-semibold">Read more <i
+                                class="fa-solid fa-arrow-right ms-1 text-sm"></i></a>
+                    </div>
+                </div>
+                <div class="blogCard shadow-2xl rounded-lg overflow-hidden">
+                    <div class="imgCont relative overflow-hidden">
+                        <div class="date text-center bg-white w-14 h-14 rounded-md absolute bottom-5 left-5 z-10">
+                            <span class="text-lg font-semibold">04</span><br><span class="text-zinc-500">Jan</span>
+                        </div>
+                        <a href="blogs/easyWaysToTransition.html">
+                            <img src="images/plant_based_meal_planning.jpg" class="rounded-t-lg duration-300" alt="">
+                        </a>
+                    </div>
+                    <div class="blogInfo p-4 px-6">
+                        <div class="flex">
+                            <p class="text-zinc-500 text-sm"><i class="pe-2 fa-solid fa-tag"></i>Food</p>
+                            <p class="text-zinc-500 text-sm mx-5"><i class="pe-2 fa-regular fa-user"></i>By Admin
+                            </p>
+                            <p class="text-zinc-500 text-sm"><i class="pe-2 fa-regular fa-comment"></i>65 Comments
+                            </p>
+                        </div>
+                        <p class="text-xl text-green-800 font-semibold my-2 h-12">Easy Ways To Transition To a
+                            Plant-Based
+                            Diet</p>
+                        <p class="my-2">There are many benefits of a plant-based diet, both for your physical and
+                            mental well-being. The American diet...</p>
+                        <a href="blogs/easyWaysToTransition.html" class="text-green-500 font-semibold">Read more <i
+                                class="fa-solid fa-arrow-right ms-1 text-sm"></i></a>
+                    </div>
+                </div>
+                <div class="blogCard shadow-2xl rounded-lg overflow-hidden">
+                    <div class="imgCont relative overflow-hidden">
+                        <div class="date text-center bg-white w-14 h-14 rounded-md absolute bottom-5 left-5 z-10">
+                            <span class="text-lg font-semibold">15</span><br><span class="text-zinc-500">July</span>
+                        </div>
+                        <a href="blogs/orangeVarieties.html">
+                            <img src="images/oranges.jpg" class="rounded-t-lg duration-300" alt=""></a>
+                    </div>
+                    <div class="blogInfo p-4 px-6">
+                        <div class="flex">
+                            <p class="text-zinc-500 text-sm"><i class="pe-2 fa-solid fa-tag"></i>Food</p>
+                            <p class="text-zinc-500 text-sm mx-5"><i class="pe-2 fa-regular fa-user"></i>By Admin
+                            </p>
+                            <p class="text-zinc-500 text-sm"><i class="pe-2 fa-regular fa-comment"></i>65 Comments
+                            </p>
+                        </div>
+                        <p class="text-xl text-green-800 font-semibold my-2 h-12">Orange You Glad You Know Your Citrus
+                            Varieties?</p>
+                        <p class="my-2">t's easy to forget that oranges were once an exotic fruit in the North East.
+                            Thanks
+                            to a steady and sophisticated supply...</p>
+                        <a href="blogs/orangeVarieties.html" class="text-green-500 font-semibold">Read more <i
+                                class="fa-solid fa-arrow-right ms-1 text-sm"></i></a>
+                    </div>
+                </div>
+                <div class="blogCard shadow-2xl rounded-lg overflow-hidden">
+                    <div class="imgCont relative overflow-hidden">
+                        <div class="date text-center bg-white w-14 h-14 rounded-md absolute bottom-5 left-5 z-10">
+                            <span class="text-lg font-semibold">04</span><br><span class="text-zinc-500">Jan</span>
+                        </div>
+                        <a href="blogs/fromSeedToFork.html">
+                            <img src="images/fromSeedToForl.jpg" class="rounded-t-lg duration-300" alt="">
+                        </a>
+                    </div>
+                    <div class="blogInfo p-4 px-6">
+                        <div class="flex">
+                            <p class="text-zinc-500 text-sm"><i class="pe-2 fa-solid fa-tag"></i>Food</p>
+                            <p class="text-zinc-500 text-sm mx-5"><i class="pe-2 fa-regular fa-user"></i>By Admin
+                            </p>
+                            <p class="text-zinc-500 text-sm"><i class="pe-2 fa-regular fa-comment"></i>65 Comments
+                            </p>
+                        </div>
+                        <p class="text-xl text-green-800 font-semibold my-2 h-12">Harnessing Organic Farming to Tackle
+                            Climate Change</p>
+                        <p class="my-2">When we think about the culprits behind climate change, we often picture
+                            smokestacks, car exhaust,and deforestation ...</p>
+                        <a href="blogs/fromSeedToFork.html" class="text-green-500 font-semibold">Read more <i
+                                class="fa-solid fa-arrow-right ms-1 text-sm"></i></a>
+                    </div>
+                </div>
+                <div class="blogCard shadow-2xl rounded-lg overflow-hidden">
+                    <div class="imgCont relative overflow-hidden">
+                        <div class="date text-center bg-white w-14 h-14 rounded-md absolute bottom-5 left-5 z-10">
+                            <span class="text-lg font-semibold">04</span><br><span class="text-zinc-500">Jan</span>
+                        </div>
+                        <a href="blogs/nurturingTheEarth.html">
+                            <img src="images/nurturingTheEarth.webp" class="rounded-t-lg duration-300" alt="">
+                        </a>
+                    </div>
+                    <div class="blogInfo p-4 px-6">
+                        <div class="flex">
+                            <p class="text-zinc-500 text-sm"><i class="pe-2 fa-solid fa-tag"></i>Food</p>
+                            <p class="text-zinc-500 text-sm mx-5"><i class="pe-2 fa-regular fa-user"></i>By Admin
+                            </p>
+                            <p class="text-zinc-500 text-sm"><i class="pe-2 fa-regular fa-comment"></i>65 Comments
+                            </p>
+                        </div>
+                        <p class="text-xl text-green-800 font-semibold my-2 h-12">Nurturing the Earth: Exploring the
+                            Beauty
+                            of Organic
+                            Farming</p>
+                        <p class="my-2">The practice of organic farming stands out as an example of sustainable
+                            agriculture
+                            at a time
+                            when environmental issues
+                            are...</p>
+                        <a href="blogs/nurturingTheEarth.html" class="text-green-500 font-semibold">Read more <i
+                                class="fa-solid fa-arrow-right ms-1 text-sm"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Newsletter -->
+        <div class="newsletter bg-gray-100 py-10">
+            <div class="container mx-auto flex flex-col lg:flex-row justify-between items-center gap-5">
+                <div class="w-full text-center lg:w-1/3">
+                    <p class="text-3xl font-semibold">Subscribe our Newsletter</p>
+                    <p class="mt-5 text-zinc-500">Pellentesque eu nibh eget mauris congue mattis mattis nec tellus.
+                        Phasellus
+                        imperdiet elit
+                        eu magna.</p>
+                </div>
+                <div class="w-full lg:w-2/3 px-5 md:px-0">
+                    <div class="flex flex-col md:flex-row gap-3 justify-end">
+                        <form action="" class="flex bg-white rounded-full justify-between">
+                            <input type="email" class="w-72 border-0 outline-0 bg-transparent py-4 px-6"
+                                placeholder="Your email address" name="email" id="email" required>
+                            <button type="submit"
+                                class="py-4 px-10 bg-green-600 rounded-full text-white font-semibold">Subscribe</button>
+                        </form>
+                        <div class="icons flex ms-5 justify-center">
+                            <a href=""
+                                class="inline-block border rounded-full w-12 h-12 mx-3 flex items-center justify-center text-zinc-700 hover:bg-green-600 duration-300"><i
+                                    class="fa-brands fa-facebook-f text-xl text-zinc-700"></i></a>
+                            <a href=""
+                                class="inline-block border rounded-full w-12 h-12 mx-3 flex items-center justify-center text-zinc-700 hover:bg-green-600 duration-300"><i
+                                    class="fa-brands fa-twitter text-xl text-zinc-700"></i></a>
+                            <a href=""
+                                class="inline-block border rounded-full w-12 h-12 mx-3 flex items-center justify-center text-zinc-700 hover:bg-green-600 duration-300"><i
+                                    class="fa-brands fa-pinterest-p text-xl text-zinc-700"></i></a>
+                            <a href=""
+                                class="inline-block border rounded-full w-12 h-12 mx-3 flex items-center justify-center text-zinc-700 hover:bg-green-600 duration-300"><i
+                                    class="fa-brands fa-instagram text-xl text-zinc-700"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- footer -->
+    <footer class="footer bg-gray">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row gap-10 justify-between py-10">
+                <div class="basis-1/4">
+                    <img src="images/logoWhite.png" alt="">
+                    <p class="py-3 text-zinc-500">Morbi cursus porttitor enim lobortis molestie. Duis gravida turpis
+                        dui, eget bibendum magna congue nec.</p>
+                    <p class="text-zinc-500"><span class="text-white font-semibold pe-2">(219) 555-0114</span>
+                        or
+                        <span class="text-white font-semibold ps-2">Proxy@gmail.com</span>
+                    </p>
+                </div>
+                <div class="basis-3/4 grid grid-cols-2 md:grid-cols-4 justify-between">
+                    <div class="flex flex-col text-zinc-500">
+                        <p class="text-white text-lg font-medium mb-3">My Account</p>
+                        <a href="signin.html" class="pb-1">My Account</a>
+                        <a href="" class="pb-1">Order History</a>
+                        <a href="" class="pb-1">Shopping Cart</a>
+                        <a href="" class="pb-1">Wishlist</a>
+                    </div>
+                    <div class="flex flex-col text-zinc-500">
+                        <p class="text-white text-lg font-medium mb-3">Help</p>
+                        <a href="contact.html" class="pb-1">Contact</a>
+                        <a href="faqs.html" class="pb-1">FAQs</a>
+                        <a href="404.html" class="pb-1">Terms &amp; Conditions</a>
+                        <a href="404.html" class="pb-1">Privacy Policy</a>
+                    </div>
+                    <div class="flex flex-col text-zinc-500">
+                        <p class="text-white text-lg font-medium mb-3">Proxy</p>
+                        <a href="about.html" class="pb-1">About</a>
+                        <a href="shop.html" class="pb-1">Shop</a>
+                        <a href="signin.html" class="pb-1">Track Order</a>
+                    </div>
+                    <div class="flex flex-col text-zinc-500">
+                        <p class="text-white text-lg font-medium mb-3">Download our Mobile App</p>
+                        <div class="flex">
+                            <img src="images/appStore.png" class="w-1/2 rounded-lg me-2" width="140"
+                                alt="appstore icon">
+                            <img src="images/playStore.png" class="w-1/2 rounded-lg" width="140" alt="playstore icon">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-t-gray-700 py-6 text-center flex flex-col md:flex-row justify-between">
+                <p class="text-zinc-500">Ecobazar eCommerce © 2021. All Rights Reserved</p>
+                <div class="my-2 md:m-0">
+                    <img src="images/payment.png" class="w-3/4 mx-auto md:w-full" alt="">
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="swiper.js"></script>
+<script src="script.js" type="module"></script>
+
+</html>

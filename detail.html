@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Swiper Js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <title>Ecobazar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <header>
+        <!-- Top Nav -->
+        <div class="hidden md:block z-30 bg-white">
+            <div class="container mx-auto topnav flex items-center justify-between py-5 gap-5">
+                <a href="index.html" class="logo"><img src="images/logo.png" alt=""></a>
+                <div class="searchbox border md:w-96 lg:w-full flex items-center justify-between rounded-lg ps-4">
+                    <div class="flex items-center">
+                        <i class="fa-solid fa-magnifying-glass pe-2"></i>
+                        <input type="text" class="border-0 outline-0 w-full lg:w-80" placeholder="Search">
+                    </div>
+                    <button
+                        class="searchBtn bg-green-600 py-2.5 px-6 rounded-r-lg border-2 border-green-600 text-white font-semibold">Search</button>
+                </div>
+                <div class="cart flex items-center cursor-pointer">
+                    <div class="cartIcon relative px-2">
+                        <i class="fa-solid fa-bag-shopping text-2xl px-3"></i>
+                        <span
+                            class="absolute top-1/2 flex items-center justify-center text-white bg-red-500 rounded-full">0</span>
+                    </div>
+                    <a href="signin.html" class="border-l border-black "><i
+                            class="fa-regular fa-user text-2xl ps-3"></i></a>
+                </div>
+            </div>
+            <!-- Navbar -->
+            <nav class="px-4 bg-gray text-white">
+                <div class="container mx-auto flex justify-between">
+                    <div class="navLinks">
+                        <a href="index.html"
+                            class="text-lg inline-block p-4 ps-0 font-medium hover:text-green-400 duration-300">Home</a>
+                        <a href="about.html"
+                            class="text-lg inline-block p-4 font-medium hover:text-green-400 duration-300">About
+                            Us</a>
+                        <a href="shop.html"
+                            class="text-lg inline-block p-4 font-medium hover:text-green-400 duration-300 active">Shop</a>
+                        <a href="blogs.html"
+                            class="text-lg inline-block p-4 font-medium hover:text-green-400 duration-300">Blogs</a>
+                        <a href="contact.html"
+                            class="text-lg inline-block p-4 font-medium hover:text-green-400 duration-300">Contact
+                            Us</a>
+                    </div>
+                    <p class="flex items-center"><img src="images/call.png" alt=""><span class="ms-3">(219)
+                            555-0114</span></p>
+                </div>
+            </nav>
+        </div>
+        <!-- small devices Navbar-->
+        <nav class="block md:hidden fixed top-0 left-0 bg-white z-30 w-full shadow-xl">
+            <div class="smNavbar flex items-center justify-between py-4 px-3 relative">
+                <a href="index.html">
+                    <img src="images/logo.png" width="150" alt="Logo">
+                </a>
+                <div class="navlinks px-4 bg-gray-50 fixed top-0 h-full">
+                    <button class="menuCancel w-full text-right"><i
+                            class="fa-solid fa-xmark text-2xl py-4"></i></button>
+                    <a href="index.html"
+                        class="block text-2xl py-4 font-medium hover:text-green-400 duration-300">Home</a>
+                    <a href="about.html" class="block text-2xl py-4 font-medium hover:text-green-400 duration-300">About
+                        Us</a>
+                    <a href="shop.html"
+                        class="block text-2xl py-4 font-medium hover:text-green-400 duration-300 active">Shop</a>
+                    <a href="blogs.html"
+                        class="block text-2xl py-4 font-medium hover:text-green-400 duration-300">Blogs</a>
+                    <a href="contact.html"
+                        class="block text-2xl py-4 font-medium hover:text-green-400 duration-300">Contact
+                        Us</a>
+                </div>
+                <div class="Navicons flex">
+                    <a href=""><i class="fa-regular fa-heart text-2xl"></i></a>
+                    <div class="cartIcon relative">
+                        <i class="fa-solid fa-bag-shopping text-2xl ps-4 pe-2 cursor-pointer"></i>
+                        <span
+                            class="absolute top-1/2 flex items-center justify-center text-white bg-red-500 rounded-full">0</span>
+                    </div>
+                    <a href="signin.html"><i class="fa-regular fa-user text-2xl ps-2 pe-4"></i></a>
+                    <button class="menuBars"><i class="fa-solid fa-bars text-2xl"></i></button>
+                </div>
+            </div>
+        </nav>
+        <!-- cart -->
+        <div class="cartTab fixed top-0 bg-gray-50 z-50 h-full duration-300 overflow-y-auto">
+            <div class="flex justify-between items-center px-5 py-4">
+                <p class="text-2xl font-semibold">Shopping Cart</p>
+                <i class="cartCancel fa-solid fa-xmark text-xl cursor-pointer"></i>
+            </div>
+            <!-- cart list -->
+            <div class="cartList px-3 overflow-y-auto">
+
+            </div>
+            <!-- close and checkout -->
+            <div class="closeCheckBtn grid grid-cols-2 w-full">
+                <button class="closeBtn bg-yellow-500 py-3 text-xl font-medium">Close</button>
+                <a href="checkout.html"
+                    class="checkout bg-green-600 py-3 text-xl font-medium text-white text-center">Checkout</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <!-- product Detail -->
+        <div class="container mx-auto py-12">
+            <div class="detail grid grid-cols-1 md:grid-cols-2 lg:gap-20 md:px-3 px-0">
+                <div class="image col-span-1 flex items-center justify-center">
+                    <img src="" class="w-96" alt="Product Image">
+                </div>
+                <div class="col-span-1 lg:ps-12 lg:pe-24">
+                    <p class="my-2 font-medium">
+                        <a href="index.html" class="hover:text-green-600 duration-300">Home</a>
+                        <span>/</span>
+                        <a href="shop.html" class="hover:text-green-600 duration-300">Shop</a>
+                        <span>/</span>
+                        <span class="productName text-gray-500"></span>
+                    </p>
+                    <p class="name text-4xl font-semibold"></p>
+                    <div class="rating my-3">
+
+                    </div>
+                    <div class="quantity text-xl my-3 font-medium text-gray-600"></div>
+                    <div class="price">
+                        <span class="disPrice text-3xl font-semibold">&#8377;</span>
+                        <span class="ogPrice text-xl font-medium text-gray-400 line-through ms-1 me-4">&#8377;
+                            250</span>
+                        <span class="percent bg-blue-500 text-white px-4 py-1 rounded-md"></span>
+                    </div>
+                    <button
+                        class="addCart w-full py-3 text-xl font-semibold bg-green-600 text-white my-6 border-2 border-green-600 hover:bg-white hover:text-black duration-300">
+                        ADD TO CART
+                    </button>
+                    <div>
+                        <p class="text-3xl font-semibold mb-5">Why shop from Ecobazar</p>
+                        <div class="my-3">
+                            <p class="text-lg font-medium text-gray-800">Superfast Delivery</p>
+                            <p class="text-gray-500">Get your order delivered to your doorstep at the earliest.</p>
+                        </div>
+                        <div class="my-3">
+                            <p class="text-lg font-medium text-gray-800">Best Prices &amp; Offers</p>
+                            <p class="text-gray-500">Best prices and offers on products</p>
+                        </div>
+                        <div class="my-3">
+                            <p class="text-lg font-medium text-gray-800">Organic &amp; Healthy</p>
+                            <p class="text-gray-500">Every product is organic and healty without any peservatives or
+                                chemicals</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Follow Us -->
+            <div class="container mx-auto py-8 md:py-12">
+                <p class="text-3xl font-semibold text-center">Follow us on Instagram</p>
+                <div class="flex justify-between my-7 gap-3 px-4">
+                    <div class="igPost rounded-lg relative">
+                        <div class="overlay rounded-lg absolute">
+                            <i class="fa-brands fa-instagram text-white text-3xl"></i>
+                        </div>
+                        <img src="images/igPost1.jpg" class="" width="230" alt="">
+                    </div>
+                    <div class="igPost rounded-lg relative">
+                        <div class="overlay rounded-lg absolute">
+                            <i class="fa-brands fa-instagram text-white text-3xl"></i>
+                        </div>
+                        <img src="images/igPost2.jpg" class="" width="230" alt="">
+                    </div>
+                    <div class="igPost rounded-lg relative">
+                        <div class="overlay rounded-lg absolute">
+                            <i class="fa-brands fa-instagram text-white text-3xl"></i>
+                        </div>
+                        <img src="images/igPost3.jpg" class="" width="230" alt="">
+                    </div>
+                    <div class="igPost rounded-lg relative">
+                        <div class="overlay rounded-lg absolute">
+                            <i class="fa-brands fa-instagram text-white text-3xl"></i>
+                        </div>
+                        <img src="images/igPost4.jpg" class="" width="230" alt="">
+                    </div>
+                    <div class="igPost rounded-lg relative">
+                        <div class="overlay rounded-lg absolute">
+                            <i class="fa-brands fa-instagram text-white text-3xl"></i>
+                        </div>
+                        <img src="images/igPost5.jpg" class="" width="230" alt="">
+                    </div>
+                    <div class="igPost rounded-lg relative">
+                        <div class="overlay rounded-lg absolute">
+                            <i class="fa-brands fa-instagram text-white text-3xl"></i>
+                        </div>
+                        <img src="images/igPost6.jpg" class="" width="230" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Newsletter -->
+        <div class="newsletter bg-gray-100 py-10">
+            <div class="container mx-auto flex flex-col lg:flex-row justify-between items-center gap-5">
+                <div class="w-full text-center lg:w-1/3">
+                    <p class="text-3xl font-semibold">Subscribe our Newsletter</p>
+                    <p class="mt-5 text-zinc-500">Pellentesque eu nibh eget mauris congue mattis mattis nec tellus.
+                        Phasellus
+                        imperdiet elit
+                        eu magna.</p>
+                </div>
+                <div class="w-full lg:w-2/3 px-5 md:px-0">
+                    <div class="flex flex-col md:flex-row gap-3 justify-end">
+                        <form action="" class="flex bg-white rounded-full justify-between">
+                            <input type="email" class="w-72 border-0 outline-0 bg-transparent py-4 px-6"
+                                placeholder="Your email address" name="email" id="email" required>
+                            <button type="submit"
+                                class="py-4 px-10 bg-green-600 rounded-full text-white font-semibold">Subscribe</button>
+                        </form>
+                        <div class="icons flex ms-5 justify-center">
+                            <a href=""
+                                class="inline-block border rounded-full w-12 h-12 mx-3 flex items-center justify-center text-zinc-700 hover:bg-green-600 duration-300"><i
+                                    class="fa-brands fa-facebook-f text-xl text-zinc-700"></i></a>
+                            <a href=""
+                                class="inline-block border rounded-full w-12 h-12 mx-3 flex items-center justify-center text-zinc-700 hover:bg-green-600 duration-300"><i
+                                    class="fa-brands fa-twitter text-xl text-zinc-700"></i></a>
+                            <a href=""
+                                class="inline-block border rounded-full w-12 h-12 mx-3 flex items-center justify-center text-zinc-700 hover:bg-green-600 duration-300"><i
+                                    class="fa-brands fa-pinterest-p text-xl text-zinc-700"></i></a>
+                            <a href=""
+                                class="inline-block border rounded-full w-12 h-12 mx-3 flex items-center justify-center text-zinc-700 hover:bg-green-600 duration-300"><i
+                                    class="fa-brands fa-instagram text-xl text-zinc-700"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- footer -->
+    <footer class="footer bg-gray">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row gap-10 justify-between py-10">
+                <div class="basis-1/4">
+                    <img src="images/logoWhite.png" alt="">
+                    <p class="py-3 text-zinc-500">Morbi cursus porttitor enim lobortis molestie. Duis gravida turpis
+                        dui, eget bibendum magna congue nec.</p>
+                    <p class="text-zinc-500"><span class="text-white font-semibold pe-2">(219) 555-0114</span>
+                        or
+                        <span class="text-white font-semibold ps-2">Proxy@gmail.com</span>
+                    </p>
+                </div>
+                <div class="basis-3/4 grid grid-cols-2 md:grid-cols-4 justify-between">
+                    <div class="flex flex-col text-zinc-500">
+                        <p class="text-white text-lg font-medium mb-3">My Account</p>
+                        <a href="signin.html" class="pb-1">My Account</a>
+                        <a href="" class="pb-1">Order History</a>
+                        <a href="" class="pb-1">Shopping Cart</a>
+                        <a href="" class="pb-1">Wishlist</a>
+                    </div>
+                    <div class="flex flex-col text-zinc-500">
+                        <p class="text-white text-lg font-medium mb-3">Help</p>
+                        <a href="contact.html" class="pb-1">Contact</a>
+                        <a href="faqs.html" class="pb-1">FAQs</a>
+                        <a href="404.html" class="pb-1">Terms &amp; Conditions</a>
+                        <a href="404.html" class="pb-1">Privacy Policy</a>
+                    </div>
+                    <div class="flex flex-col text-zinc-500">
+                        <p class="text-white text-lg font-medium mb-3">Proxy</p>
+                        <a href="about.html" class="pb-1">About</a>
+                        <a href="shop.html" class="pb-1">Shop</a>
+                        <a href="signin.html" class="pb-1">Track Order</a>
+                    </div>
+                    <div class="flex flex-col text-zinc-500">
+                        <p class="text-white text-lg font-medium mb-3">Download our Mobile App</p>
+                        <div class="flex">
+                            <img src="images/appStore.png" class="w-1/2 rounded-lg me-2" width="140"
+                                alt="appstore icon">
+                            <img src="images/playStore.png" class="w-1/2 rounded-lg" width="140" alt="playstore icon">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-t-gray-700 py-6 text-center flex flex-col md:flex-row justify-between">
+                <p class="text-zinc-500">Ecobazar eCommerce © 2021. All Rights Reserved</p>
+                <div class="my-2 md:m-0">
+                    <img src="images/payment.png" class="w-3/4 mx-auto md:w-full" alt="">
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="swiper.js"></script>
+<script src="script.js" type="module"></script>
+
+</html>

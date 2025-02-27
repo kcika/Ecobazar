@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Swiper Js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <title>Ecobazar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <header>
+        <!-- Top Nav -->
+        <div class="hidden md:block z-30 bg-white">
+            <div class="container mx-auto topnav flex items-center justify-between py-5 gap-5">
+                <a href="../index.html" class="logo"><img src="../images/logo.png" alt=""></a>
+                <div class="searchbox border md:w-96 lg:w-full flex items-center justify-between rounded-lg ps-4">
+                    <div class="flex items-center">
+                        <i class="fa-solid fa-magnifying-glass pe-2"></i>
+                        <input type="text" class="border-0 outline-0 w-full lg:w-80" placeholder="Search">
+                    </div>
+                    <button
+                        class="searchBtn bg-green-600 py-2.5 px-6 rounded-r-lg border-2 border-green-600 text-white font-semibold">Search</button>
+                </div>
+                <div class="cart flex items-center cursor-pointer">
+                    <div class="cartIcon relative px-2">
+                        <i class="fa-solid fa-bag-shopping text-2xl px-3"></i>
+                        <span
+                            class="absolute top-1/2 flex items-center justify-center text-white bg-red-500 rounded-full">0</span>
+                    </div>
+                    <a href="../signin.html" class="border-l border-black"><i
+                            class="fa-regular fa-user text-2xl ps-3"></i></a>
+                </div>
+            </div>
+            <!-- Navbar -->
+            <nav class="px-4 bg-gray text-white">
+                <div class="container mx-auto flex justify-between">
+                    <div class="navLinks">
+                        <a href="../index.html"
+                            class="text-lg inline-block p-4 ps-0 font-medium hover:text-green-400 duration-300">Home</a>
+                        <a href="../about.html"
+                            class="text-lg inline-block p-4 font-medium hover:text-green-400 duration-300">About
+                            Us</a>
+                        <a href="../shop.html"
+                            class="text-lg inline-block p-4 font-medium hover:text-green-400 duration-300">Shop</a>
+                        <a href="../blogs.html"
+                            class="text-lg inline-block p-4 font-medium hover:text-green-400 duration-300 active">Blogs</a>
+                        <a href="../contact.html"
+                            class="text-lg inline-block p-4 font-medium hover:text-green-400 duration-300">Contact
+                            Us</a>
+                    </div>
+                    <p class="flex items-center"><img src="../images/call.png" alt=""><span class="ms-3">(219)
+                            555-0114</span></p>
+                </div>
+            </nav>
+        </div>
+        <!-- small devices Navbar-->
+        <nav class="block md:hidden fixed top-0 left-0 bg-white z-30 w-full shadow-xl">
+            <div class="smNavbar flex items-center justify-between py-4 px-3 relative">
+                <a href="../index.html">
+                    <img src="../images/logo.png" width="150" alt="Logo">
+                </a>
+                <div class="navlinks px-4 bg-gray-50 fixed top-0 h-full">
+                    <button class="menuCancel w-full text-right"><i
+                            class="fa-solid fa-xmark text-2xl py-4"></i></button>
+                    <a href="../index.html"
+                        class="block text-2xl py-4 font-medium hover:text-green-400 duration-300">Home</a>
+                    <a href="../about.html"
+                        class="block text-2xl py-4 font-medium hover:text-green-400 duration-300">About
+                        Us</a>
+                    <a href="../shop.html"
+                        class="block text-2xl py-4 font-medium hover:text-green-400 duration-300">Shop</a>
+                    <a href="../blog.html"
+                        class="block text-2xl py-4 font-medium hover:text-green-400 duration-300 active">Blogs</a>
+                    <a href="../contact.html"
+                        class="block text-2xl py-4 font-medium hover:text-green-400 duration-300">Contact
+                        Us</a>
+                </div>
+                <div class="Navicons flex">
+                    <div class="cartIcon relative">
+                        <i class="fa-solid fa-bag-shopping text-2xl ps-4 pe-2 cursor-pointer"></i>
+                        <span
+                            class="absolute top-1/2 flex items-center justify-center text-white bg-red-500 rounded-full">0</span>
+                    </div>
+                    <a href="../signin.html"><i class="fa-regular fa-user text-2xl ps-2 pe-4"></i></a>
+                    <button class="menuBars"><i class="fa-solid fa-bars text-2xl"></i></button>
+                </div>
+            </div>
+        </nav>
+        <!-- cart -->
+        <div class="cartTab fixed top-0 bg-gray-50 z-50 h-full duration-300 overflow-y-auto">
+            <div class="flex justify-between items-center px-5 py-4">
+                <p class="text-2xl font-semibold">Shopping Cart</p>
+                <i class="cartCancel fa-solid fa-xmark text-xl cursor-pointer"></i>
+            </div>
+            <!-- cart list -->
+            <div class="cartList px-3 overflow-y-auto">
+
+            </div>
+            <!-- close and checkout -->
+            <div class="closeCheckBtn grid grid-cols-2 w-full">
+                <button class="closeBtn bg-yellow-500 py-3 text-xl font-medium">Close</button>
+                <a href="../checkout.html"
+                    class="checkout bg-green-600 py-3 text-xl font-medium text-white text-center">Checkout</a>
+            </div>
+        </div>
+    </header>
+    <!-- breadcrumbs -->
+    <div class="hidden md:block relative mt-16 md:mt-0">
+        <div class="absolute top-1/2 -translate-y-1/2 left-10 lg:left-48">
+            <span><a href="../index.html"><i
+                        class="fa-solid fa-house text-white text-xl hover:text-green-500 duration-300"></i></a></span>
+            <span><i class="fa-solid fa-chevron-right text-white text-sm mx-3"></i></span>
+            <span><a href="../blogs.html" class="text-green-500 text-xl">Blogs</a></span>
+            <span><i class="fa-solid fa-chevron-right text-white text-sm mx-3"></i></span>
+            <span class="text-gray-300 text-xl">11 Ways to Eat Clean: Clean Eating Beginners Guide</span>
+        </div>
+        <img src="../images/Breadcrumbs.jpg" width="100%" height="" alt="">
+    </div>
+    <!-- About us -->
+    <div class="container mx-auto py-5 md:py-14 px-3 md:px-0 mt-16 md:mt-0">
+        <div class="w-full md:w-5/6 lg:w-4/6 mx-auto">
+            <p class="text-3xl font-semibold text-center">11 Ways to Eat Clean: Clean Eating Beginners Guide</p>
+            <p class="text-lg my-3 text-center"><i>- by</i> Nature's Path 4 January 2025</p>
+            <img src="../images/healthy_snacks.jpg" class="my-10" alt="Blog Image">
+            <div>
+                <p class="text-lg mb-2">
+                    Eating clean consists of eating whole, unprocessed foods and avoiding highly refined foods.
+                    Additionally, eating clean
+                    eliminates added sugars, unhealthy fats, and excess sodium. Although there are many variations
+                    of eating clean, it is
+                    primarily eating more fruits, vegetables, whole grains, legumes, nuts, seeds, and lean proteins.
+
+                    When it comes to getting started with eating clean, use this as a helpful guide for beginners.
+                </p>
+                <ul>
+                    <li class="list-disc ms-6 my-1">Whole grains (brown rice, millet, oatmeal, etc.)</li>
+                    <li class="list-disc ms-6 my-1">High-quality proteins (grass-fed beef, organic chicken, etc.)
+                    </li>
+                    <li class="list-disc ms-6 my-1">Plant-based proteins (beans, nuts, seeds, etc.)</li>
+                    <li class="list-disc ms-6 my-1">Fruits and Vegetables; and</li>
+                    <li class="list-disc ms-6 my-1">Healthy fats (avocados, coconut oil, etc.)</li>
+                </ul>
+                <p class="text-xl font-semibold my-5">
+                    Tips to help you get started:
+                </p>
+                <div>
+                    <p class="text-lg mb-2">
+                        1. Learn the Basics of Clean Eating
+                    </p>
+                    <p class="text-lg mb-2">
+                        2. Identify Your Specific Goals
+                    </p>
+                    <p class="text-lg mb-2">
+                        3. Portion Your Plates
+                    </p>
+                    <p class="text-lg mb-2">
+                        4. Eat More Fruits and Vegetables in Every Meal
+                    </p>
+                    <p class="text-lg mb-2">
+                        5. Make Water your Primary Drink of Choice
+                    </p>
+                    <p class="text-lg mb-2">
+                        6. Limit Processed Foods
+                    </p>
+                    <p class="text-lg mb-2">
+                        7. Find Healthy Recipes to Try Out
+                    </p>
+                    <p class="text-lg mb-2">
+                        8. Reduce Salt and Added Sugars
+                    </p>
+                    <p class="text-lg mb-2">
+                        9. Choose Organic
+                    </p>
+                    <p class="text-lg mb-2">
+                        10. Snack the Smart Way
+                    </p>
+                    <p class="text-lg mb-2">
+                        11. Eat Mindfully and Enjoy Every Bite
+                    </p>
+                </div>
+                <p class="text-3xl mb-2 mt-5 text-gray-600 font-medium">
+                    Learn the Basics of Clean Eating
+                </p>
+                <p class="text-lg mb-4">Clean eating is simple. Choose whole foods and minimize eating highly
+                    processed and unrefined foods, including most fast
+                    food places. Include plenty of fiber, good fats, and protein in every meal to help you maintain
+                    full throughout the day.
+                    Also, watch out for artificial ingredients and avoid drinking your calories. Achieving optimal
+                    health does not come from
+                    counting calories, it comes from using healthy food in a way that maximizes your health.
+                </p>
+                <p class="text-3xl mb-2 mt-5 text-gray-600 font-medium">
+                    Identify Your Specific Goals
+                </p>
+                <p class="text-lg mb-2">It is important to identify your personal health goals and to understand why
+                    you are doing them. Whether you're trying
+                    to lose weight, reduce processed foods, choose healthier options, or exercise more, you need a
+                    plan for your goals. Your
+                    needs will determine what your goals will look like. For example, if you want to adopt healthier
+                    eating habits, you may
+                    switch from calorie-dense foods to a more nutrient-based diet that contains more fiber.
+                    <br>
+                    If your goals consist of losing weight, you may need to cut back on carbohydrates and integrate
+                    more vegetables but
+                    regardless of your goals, there is always room for eating healthier.
+                </p>
+                <p class="text-3xl mb-2 mt-5 text-gray-600 font-medium">
+                    Portion Your Plates
+                </p>
+                <img src="../images/meal_portion.jpg" class="my-6" alt="">
+                <p class="text-lg mb-3">Portioning your plate is another easy way to eat a well-balanced and clean
+                    meal. A good rule of thumb is to have ½ of
+                    your plate for vegetables, ¼ of the plate for lean protein or plant protein, and ¼ for healthy
+                    carbohydrates like whole
+                    grains. Breakfast may not work well with these portions, as they are designed for larger meals.
+                </p>
+                <p class="text-3xl mb-2 mt-5 text-gray-600 font-medium">
+                    Eat More Fruits and Vegetables in Every Meal
+                </p>
+                <p class="text-lg mb-3">Adding more fruits and vegetables to every meal is another great way to eat
+                    clean.
+                    <br>
+                    Fruits and vegetables are packed with vitamins like vitamin A, C, and E, minerals, and lots of
+                    antioxidants that help
+                    reduce many diseases. A study conducted by Rautianen et al in The American Journal of Medicine
+                    notes the connection
+                    between cardiovascular disease prevention and a diet high in antioxidants. In other words,
+                    eating fruits and vegetables
+                    will have long-term benefits for your overall health.
+                    <br>
+                    If your meal does not include any vegetables, have a side salad before the main entree. For
+                    breakfast you can blend a
+                    delicious fruit smoothie and toss in some kale or add sliced apples to a tasty Cacao Oatmeal.
+                </p>
+                <p class="text-3xl mb-2 mt-5 text-gray-600 font-medium">
+                    Make Water your Primary Drink of Choice
+                </p>
+                <img src="../images/water_primary_drink.jpg" class="my-6" alt="">
+                <p class="text-lg mb-3">Drinking water has so many benefits. Making it your primary beverage is
+                    another way to get the most out of it.
+                <ul>
+                    <li class="font-semibold">Some benefits include:</li>
+                    <li class="list-disc">flushing bacteria and toxins</li>
+                    <li class="list-disc">normalizing blood pressure</li>
+                    <li class="list-disc">protecting organs</li>
+                    <li class="list-disc">regulating body temperature etc.</li>
+                </ul>
+                Harvard health suggests drinking at least 4-6 cups (32-48 ounces) of water a day to keep your body
+                hydrated. Not only
+                will your skin look fresh, but because water makes you full, you are less likely to overeat.
+
+                You can never go wrong with water and for better taste, add natural flavor and infuse it with some
+                cucumber, lemon, or
+                berries.
+                </p>
+                <p class="text-3xl mb-2 mt-5 text-gray-600 font-medium">
+                    Limit Processed Foods
+                </p>
+                <p class="text-lg mb-3">
+                    Limit and avoid processed and refined foods such as white breads, pastas, frozen dinners,
+                    vegetable oils, and sugary
+                    snacks that are high calorie and low in nutritional value. Processed foods are the worst things
+                    you can put in your
+                    body. They are loaded with preservatives, chemicals, and other additives that are not necessary
+                    for the body to function
+                    effectively.
+                    <br>
+                    These foods cause disruptions in your body like bloating, hormonal imbalances, and lead to other
+                    serious health issues.
+                    Start eliminating these toxic foods immediately and you will begin to feel a lot better.
+                </p>
+                <p class="text-3xl mb-2 mt-5 text-gray-600 font-medium">
+                    Find Healthy Recipes to Try Out
+                </p>
+                <img src="../images/healthy_recipe.jpg" class="my-6" alt="">
+                <p class="text-lg mb-3">Find healthy recipes online and try them out. This will involve doing some
+                    research, making a grocery list, and
+                    preparing a home cooked meal.
+
+                    Eating clean does not have to be boring so get creative and use your resources. Don’t forget to
+                    check out the Nature’s
+                    Path recipe section for healthier options.
+                </p>
+                <p class="text-3xl mb-2 mt-5 text-gray-600 font-medium">
+                    Reduce Salt and Added Sugars
+                </p>
+                <p class="text-lg mb-3">Reduce salt and added sugar in foods, this means you should read your food
+                    labels. According to a study by Siyi
+                    Shangguan et al. (2018), they found that “More than 2 in 5 American adults have obesity (. . .),
+                    1 in 2 have diabetes or
+                    prediabetes, and nearly 1 in 2 have CVD . . .” which in relation to consuming excess salt and
+                    added sugars.
+
+                    Reducing foods that contain too much sodium and sugars will aid in lowering blood sugars, help
+                    you lose weight, and
+                    reduce the risk of a heart attack or stroke. Remember that anything in excess is not good for
+                    you.
+                </p>
+                <p class="text-3xl mb-2 mt-5 text-gray-600 font-medium">
+                    Consider Organic
+                </p>
+                <p class="text-lg mb-3">Consider eating organic. Most organic foods are not processed with synthetic
+                    fertilizers, nor are genetically modified
+                    or contain other harmful chemicals. Eating organic guarantees that your produce, dairy,
+                    proteins, and legumes are safe
+                    for consumption.
+                    <br>
+                    You can purchase organic products at your local farmers market or grocery store. If you cannot
+                    afford organic, consider
+                    growing your own produce.
+                </p>
+                <p class="text-3xl mb-2 mt-5 text-gray-600 font-medium">
+                    Snack the Smart Way
+                </p>
+                <img src="../images/healthy_snacks.jpg" class="my-6" alt="">
+                <p class="text-lg mb-3">Instead of snacking on unhealthy potato chips, cookies, or other sugary
+                    candies, snack the smart way by eating fruits or
+                    other healthier options.
+                    <br>
+                    You can always snack on organic, gluten free chips or a small yogurt bowl with granola. Don’t be
+                    tempted to take the
+                    easy route, if you want to eat clean then snack smart.
+                </p>
+                <p class="text-3xl mb-2 mt-5 text-gray-600 font-medium">
+                    Eat Mindfully and Enjoy Every Bite
+                </p>
+                <p class="text-lg mb-3">Eat mindfully and enjoy every bite, this means chew your food and take your
+                    time. In a world where we are constantly on
+                    the go, it's important to take your time eating without distractions and stress.
+                    <br>
+                    Eating clean is not about completely restricting foods in your diet, but it's possible for
+                    anyone to achieve a healthy
+                    balance of nutrients through clean eating. The right foods replenish your body, heal your mind,
+                    and optimize your energy
+                    which will improve your overall health and quality of life.
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- Newsletter -->
+    <div class="newsletter bg-gray-100 py-10">
+        <div class="container mx-auto flex flex-col lg:flex-row justify-between items-center gap-5">
+            <div class="w-full text-center lg:w-1/3">
+                <p class="text-3xl font-semibold">Subscribe our Newsletter</p>
+                <p class="mt-5 text-zinc-500">Pellentesque eu nibh eget mauris congue mattis mattis nec tellus.
+                    Phasellus
+                    imperdiet elit
+                    eu magna.</p>
+            </div>
+            <div class="w-full lg:w-2/3 px-5 md:px-0">
+                <div class="flex flex-col md:flex-row gap-3 justify-end">
+                    <form action="" class="flex bg-white rounded-full justify-between">
+                        <input type="email" class="w-72 border-0 outline-0 bg-transparent py-4 px-6"
+                            placeholder="Your email address" name="email" id="email" required>
+                        <button type="submit"
+                            class="py-4 px-10 bg-green-600 rounded-full text-white font-semibold">Subscribe</button>
+                    </form>
+                    <div class="icons flex ms-5 justify-center">
+                        <a href=""
+                            class="inline-block border rounded-full w-12 h-12 mx-3 flex items-center justify-center text-zinc-700 hover:bg-green-600 duration-300"><i
+                                class="fa-brands fa-facebook-f text-xl text-zinc-700"></i></a>
+                        <a href=""
+                            class="inline-block border rounded-full w-12 h-12 mx-3 flex items-center justify-center text-zinc-700 hover:bg-green-600 duration-300"><i
+                                class="fa-brands fa-twitter text-xl text-zinc-700"></i></a>
+                        <a href=""
+                            class="inline-block border rounded-full w-12 h-12 mx-3 flex items-center justify-center text-zinc-700 hover:bg-green-600 duration-300"><i
+                                class="fa-brands fa-pinterest-p text-xl text-zinc-700"></i></a>
+                        <a href=""
+                            class="inline-block border rounded-full w-12 h-12 mx-3 flex items-center justify-center text-zinc-700 hover:bg-green-600 duration-300"><i
+                                class="fa-brands fa-instagram text-xl text-zinc-700"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+    <footer class="footer bg-gray">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row gap-10 justify-between py-10">
+                <div class="basis-1/4">
+                    <img src="../images/logoWhite.png" alt="">
+                    <p class="py-3 text-zinc-500">Morbi cursus porttitor enim lobortis molestie. Duis gravida turpis
+                        dui, eget bibendum magna congue nec.</p>
+                    <p class="text-zinc-500"><span class="text-white font-semibold pe-2">(219) 555-0114</span>
+                        or
+                        <span class="text-white font-semibold ps-2">Proxy@gmail.com</span>
+                    </p>
+                </div>
+                <div class="basis-3/4 grid grid-cols-2 md:grid-cols-4 justify-between">
+                    <div class="flex flex-col text-zinc-500">
+                        <p class="text-white text-lg font-medium mb-3">My Account</p>
+                        <a href="../signin.html" class="pb-1">My Account</a>
+                        <a href="" class="pb-1">Order History</a>
+                        <a href="" class="pb-1">Shopping Cart</a>
+                        <a href="" class="pb-1">Wishlist</a>
+                    </div>
+                    <div class="flex flex-col text-zinc-500">
+                        <p class="text-white text-lg font-medium mb-3">Help</p>
+                        <a href="../contact.html" class="pb-1">Contact</a>
+                        <a href="../faqs.html" class="pb-1">FAQs</a>
+                        <a href="../404.html" class="pb-1">Terms &amp; Conditions</a>
+                        <a href="../404.html" class="pb-1">Privacy Policy</a>
+                    </div>
+                    <div class="flex flex-col text-zinc-500">
+                        <p class="text-white text-lg font-medium mb-3">Proxy</p>
+                        <a href="../about.html" class="pb-1">About</a>
+                        <a href="../shop.html" class="pb-1">Shop</a>
+                        <a href="../signin.html" class="pb-1">Track Order</a>
+                    </div>
+                    <div class="flex flex-col text-zinc-500">
+                        <p class="text-white text-lg font-medium mb-3">Download our Mobile App</p>
+                        <div class="flex">
+                            <img src="../images/appStore.png" class="w-1/2 rounded-lg me-2" width="140"
+                                alt="appstore icon">
+                            <img src="../images/playStore.png" class="w-1/2 rounded-lg" width="140"
+                                alt="playstore icon">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-t-gray-700 py-6 text-center flex flex-col md:flex-row justify-between">
+                <p class="text-zinc-500">Ecobazar eCommerce © 2021. All Rights Reserved</p>
+                <div class="my-2 md:m-0">
+                    <img src="../images/payment.png" class="w-3/4 mx-auto md:w-full" alt="">
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="../script.js"></script>
+<script src="../cart.js" type="module"></script>
+
+</html>
